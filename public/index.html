@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askelyckans Konditori | Sedan 1956 | Växjö</title>
+    <meta name="description" content="Askelyckans Konditori - Växjös älskade bageri sedan 1956. Handgjorda tårtor, bakverk och smörgåstårtor bakade med kärlek.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FDF6EC;
+            --warm-brown: #8B6914;
+            --dark-brown: #3D2B1F;
+            --golden: #D4A843;
+            --soft-pink: #F2E0D0;
+            --deep-rose: #C4846C;
+            --white: #FFFFFF;
+            --text: #2C1810;
+            --text-light: #6B5B50;
+            --sage: #A8B5A0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === NAVIGATION === */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(253, 246, 236, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(61, 43, 31, 0.08);
+            padding: 0.6rem 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            display: block;
+            font-size: 0.65rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--golden);
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--golden);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--warm-brown); }
+
+        .nav-cta {
+            background: var(--dark-brown) !important;
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 100px;
+            font-size: 0.8rem !important;
+            transition: transform 0.3s, background 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            background: var(--warm-brown) !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark-brown);
+            transition: all 0.3s;
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 50%, #E8D5C4 100%);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: radial-gradient(circle at 25% 25%, var(--dark-brown) 1px, transparent 1px),
+                              radial-gradient(circle at 75% 75%, var(--dark-brown) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 em {
+            color: var(--golden);
+            font-style: italic;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 168, 67, 0.15);
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            border-radius: 100px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.8rem;
+            color: var(--warm-brown);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--warm-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(61, 43, 31, 0.2);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--dark-brown);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 2px solid var(--dark-brown);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-brown);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 4/5;
+            background: linear-gradient(145deg, #E8D5C4, #D4A843);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(61, 43, 31, 0.15);
+        }
+
+        .hero-card-inner {
+            text-align: center;
+            color: var(--white);
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card-inner .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero-card-inner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-card-inner p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-badge.top-right {
+            top: -10px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: 40px;
+            left: -30px;
+            animation-delay: 2s;
+        }
+
+        .floating-badge .badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .floating-badge .badge-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .floating-badge .badge-sub {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* === SECTIONS === */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--golden);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        /* === ABOUT / STORY === */
+        .story {
+            background: var(--white);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .story-img {
+            border-radius: 16px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .story-img:nth-child(1) { background: linear-gradient(135deg, var(--soft-pink), #E8D5C4); }
+        .story-img:nth-child(2) { background: linear-gradient(135deg, #E8D5C4, var(--golden)); transform: translateY(2rem); }
+        .story-img:nth-child(3) { background: linear-gradient(135deg, var(--sage), #C4D4BC); }
+        .story-img:nth-child(4) { background: linear-gradient(135deg, var(--golden), var(--deep-rose)); transform: translateY(2rem); }
+
+        .story-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(61, 43, 31, 0.1);
+        }
+
+        .stat h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--golden);
+        }
+
+        .stat p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* === SPECIALTIES === */
+        .specialties {
+            background: var(--cream);
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .spec-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s;
+            border: 1px solid rgba(61, 43, 31, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(61, 43, 31, 0.1);
+        }
+
+        .spec-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-card:nth-child(1) .spec-icon { background: rgba(212, 168, 67, 0.15); }
+        .spec-card:nth-child(2) .spec-icon { background: rgba(196, 132, 108, 0.15); }
+        .spec-card:nth-child(3) .spec-icon { background: rgba(168, 181, 160, 0.15); }
+
+        .spec-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.8rem;
+        }
+
+        .spec-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* === CAKES / TÅRTOR === */
+        .cakes {
+            background: var(--white);
+        }
+
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cake-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(61, 43, 31, 0.05);
+        }
+
+        .cake-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(61, 43, 31, 0.1);
+        }
+
+        .cake-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .cake-card:nth-child(1) .cake-img { background: linear-gradient(135deg, #F2E0D0, #E8D5C4); }
+        .cake-card:nth-child(2) .cake-img { background: linear-gradient(135deg, #D4E8D0, #A8B5A0); }
+        .cake-card:nth-child(3) .cake-img { background: linear-gradient(135deg, #E0D0E8, #C4A8D4); }
+        .cake-card:nth-child(4) .cake-img { background: linear-gradient(135deg, #D4A843, #E8D5C4); }
+        .cake-card:nth-child(5) .cake-img { background: linear-gradient(135deg, #F2D0D0, #C4846C); }
+        .cake-card:nth-child(6) .cake-img { background: linear-gradient(135deg, #D0E0F2, #A8B5C4); }
+
+        .cake-info {
+            padding: 1.5rem;
+        }
+
+        .cake-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.4rem;
+        }
+
+        .cake-info .cake-desc {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .cake-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cake-price {
+            font-weight: 600;
+            color: var(--golden);
+            font-size: 0.95rem;
+        }
+
+        .cake-tag {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            background: rgba(168, 181, 160, 0.2);
+            color: #5A6B52;
+            font-weight: 500;
+        }
+
+        /* === WEDDING === */
+        .wedding {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wedding-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .wedding-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .wedding-feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .wedding-feature .wf-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            background: rgba(212, 168, 67, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .wedding-feature h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 0.2rem;
+        }
+
+        .wedding-feature p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .wedding-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(61, 43, 31, 0.08);
+        }
+
+        .wedding-card .icon { font-size: 4rem; margin-bottom: 1.5rem; display: block; }
+
+        .wedding-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .wedding-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* === CONFERENCE === */
+        .conference {
+            background: var(--dark-brown);
+            color: var(--white);
+        }
+
+        .conference .section-label { color: var(--golden); }
+        .conference .section-title { color: var(--white); }
+        .conference .section-desc { color: rgba(255,255,255,0.7); }
+
+        .conf-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .conf-feature {
+            background: rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s;
+        }
+
+        .conf-feature:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .conf-feature .cf-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .conf-feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .conf-feature p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* === CONTACT === */
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(61, 43, 31, 0.05);
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-item .ci-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            background: rgba(212, 168, 67, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .contact-item a:hover { color: var(--golden); }
+
+        .hours-table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(61, 43, 31, 0.06);
+            font-size: 0.85rem;
+        }
+
+        .hours-row .day { color: var(--text); font-weight: 500; }
+        .hours-row .time { color: var(--text-light); }
+
+        .hours-row.today {
+            background: rgba(212, 168, 67, 0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0.8rem;
+            margin: 0 -0.8rem;
+        }
+
+        .hours-row.today .day { color: var(--golden); }
+
+        /* === MAP === */
+        .map-section {
+            background: var(--white);
+            padding: 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            background: linear-gradient(135deg, #E8D5C4, var(--cream));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-overlay {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .map-overlay .pin { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+        .map-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .map-overlay p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .map-overlay a {
+            color: var(--golden);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--golden);
+            padding-bottom: 2px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--dark-brown);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .nav-logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--golden); }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0;
+        }
+
+        .footer-social a:hover {
+            background: rgba(212, 168, 67, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* === MOBILE === */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(253, 246, 236, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-brown);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover { color: var(--golden); }
+
+        .mobile-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--dark-brown);
+            cursor: pointer;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 7rem;
+            }
+
+            .hero-text p { margin: 0 auto 2.5rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { order: -1; }
+            .hero-card { max-width: 320px; aspect-ratio: 1; }
+
+            .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .story-visual { order: -1; }
+
+            .spec-grid { grid-template-columns: 1fr; }
+
+            .wedding-grid { grid-template-columns: 1fr; }
+
+            .conf-features { grid-template-columns: 1fr; }
+
+            .contact-grid { grid-template-columns: 1fr; }
+
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 4rem 1.2rem; }
+            .cake-grid { grid-template-columns: 1fr; }
+            .story-visual { grid-template-columns: 1fr 1fr; }
+            .footer-top { grid-template-columns: 1fr; }
+            .story-stats { flex-direction: column; gap: 1.5rem; }
+            .floating-badge { display: none; }
+        }
+
+        /* === ANIMATIONS === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                Askelyckans
+                <span>Konditori sedan 1956</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#story">Om oss</a></li>
+                <li><a href="#menu">Specialiteter</a></li>
+                <li><a href="#cakes">Tårtor</a></li>
+                <li><a href="#wedding">Bröllop</a></li>
+                <li><a href="#conference">Konferens</a></li>
+                <li><a href="#contact" class="nav-cta">Kontakta oss</a></li>
+            </ul>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" onclick="toggleMenu()">&times;</button>
+        <a href="#story" onclick="toggleMenu()">Om oss</a>
+        <a href="#menu" onclick="toggleMenu()">Specialiteter</a>
+        <a href="#cakes" onclick="toggleMenu()">Tårtor</a>
+        <a href="#wedding" onclick="toggleMenu()">Bröllop</a>
+        <a href="#conference" onclick="toggleMenu()">Konferens</a>
+        <a href="#contact" onclick="toggleMenu()">Kontakt</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">&#9733; Växjös mest älskade konditori</div>
+                <h1>Bakat med <em>kärlek</em> sedan 1956</h1>
+                <p>Välkommen till Askelyckans Konditori &mdash; där varje bakverk berättar en historia om tradition, hantverk och passion. Beläget i hjärtat av Växjö.</p>
+                <div class="hero-buttons">
+                    <a href="#cakes" class="btn-primary">Se våra tårtor &rarr;</a>
+                    <a href="#contact" class="btn-secondary">Besök oss</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <span class="icon">&#127856;</span>
+                        <h3>Handgjort varje dag</h3>
+                        <p>Färskt bakat med tradition</p>
+                    </div>
+                </div>
+                <div class="floating-badge top-right">
+                    <div class="badge-icon" style="background:rgba(212,168,67,0.15)">&#9734;</div>
+                    <div>
+                        <div class="badge-text">70 år</div>
+                        <div class="badge-sub">av tradition</div>
+                    </div>
+                </div>
+                <div class="floating-badge bottom-left">
+                    <div class="badge-icon" style="background:rgba(168,181,160,0.15)">&#10084;</div>
+                    <div>
+                        <div class="badge-text">Lokalt älskat</div>
+                        <div class="badge-sub">sedan 1956</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story / About -->
+    <section class="story" id="story">
+        <div class="section-inner">
+            <div class="story-grid">
+                <div class="story-visual reveal">
+                    <div class="story-img">&#127874;</div>
+                    <div class="story-img">&#9749;</div>
+                    <div class="story-img">&#127838;</div>
+                    <div class="story-img">&#127846;</div>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="section-label">Vår historia</div>
+                    <h2 class="section-title">En tradition av smak och gemenskap</h2>
+                    <p class="section-desc">Sedan 1956 har Askelyckans Konditori varit Växjös samlingspunkt. Här bakar vi varje dag med samma kärlek och omsorg som grundarna en gång började med. Våra recept har gått i arv genom generationer, men vi strävar alltid efter att utvecklas.</p>
+                    <p class="section-desc">Storgatan 25 har varit vårt hem i över 70 år &mdash; ett konditori där det doftar nybakat och kaffet alltid är varmt.</p>
+                    <div class="story-stats">
+                        <div class="stat">
+                            <h4>70+</h4>
+                            <p>År av tradition</p>
+                        </div>
+                        <div class="stat">
+                            <h4>1000+</h4>
+                            <p>Tårtor per år</p>
+                        </div>
+                        <div class="stat">
+                            <h4>80</h4>
+                            <p>Sittplatser</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties -->
+    <section class="specialties" id="menu">
+        <div class="section-inner">
+            <div class="section-label reveal">Våra specialiteter</div>
+            <h2 class="section-title reveal">Något för alla tillfällen</h2>
+            <p class="section-desc reveal">Från morgonens nybakade frallor till eftermiddagens wienerbröd &mdash; vi har allt du behöver.</p>
+
+            <div class="spec-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-icon">&#127856;</div>
+                    <h3>Bakverk & Kaffe</h3>
+                    <p>Njut av vårt handgjorda sortiment av wienerbröd, bakelser och småkakor tillsammans med en perfekt kopp kaffe, te eller varm choklad.</p>
+                </div>
+                <div class="spec-card reveal reveal-delay-1">
+                    <div class="spec-icon">&#129386;</div>
+                    <h3>Smörgåstårtor & Lunch</h3>
+                    <p>Våra smörgåstårtor och lunchplankor är perfekta för möten, kalas eller en lyxig lunch. Beställ i förväg för bästa upplevelse.</p>
+                </div>
+                <div class="spec-card reveal reveal-delay-2">
+                    <div class="spec-icon">&#127874;</div>
+                    <h3>Beställningstårtor</h3>
+                    <p>Fira med en handgjord tårta! Vi erbjuder allt från klassisk prinsesstårta till chokladfestival. Glutenfria och laktosfria alternativ finns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cakes -->
+    <section class="cakes" id="cakes">
+        <div class="section-inner">
+            <div class="section-label reveal">Vårt tårtsortiment</div>
+            <h2 class="section-title reveal">Handgjorda tårtor för alla tillfällen</h2>
+            <p class="section-desc reveal">Alla tårtor bakas färskt på beställning. Beställ minst 2 dagar i förväg. Leverans inom Växjö före 10:30 för 100 kr.</p>
+
+            <div class="cake-grid">
+                <div class="cake-card reveal">
+                    <div class="cake-img">&#127856;</div>
+                    <div class="cake-info">
+                        <h3>Prinsesstårta</h3>
+                        <p class="cake-desc">Tårtbotten, hallonsylt, vaniljkräm, grädde och marsipan. En tidlös klassiker.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 114 kr</span>
+                            <span class="cake-tag">Glutenfri finns</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-card reveal reveal-delay-1">
+                    <div class="cake-img">&#127851;</div>
+                    <div class="cake-info">
+                        <h3>Chokladfestival</h3>
+                        <p class="cake-desc">Mudcakebotten, hallontryffel, chokladmousse och ganachetopping. Naturligt glutenfri.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 132 kr</span>
+                            <span class="cake-tag">Glutenfri</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-card reveal reveal-delay-2">
+                    <div class="cake-img">&#129365;</div>
+                    <div class="cake-info">
+                        <h3>Blåbärstårta</h3>
+                        <p class="cake-desc">Tårtbotten, vispgrädde och blåbär med gelétoppning. Frisk och lätt.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 114 kr</span>
+                            <span class="cake-tag">Glutenfri finns</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-card reveal">
+                    <div class="cake-img">&#127848;</div>
+                    <div class="cake-info">
+                        <h3>Budapesttårta</h3>
+                        <p class="cake-desc">Hasselnötsmarängbotten med grädde och mandariner. Naturligt glutenfri.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 114 kr</span>
+                            <span class="cake-tag">Glutenfri</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-card reveal reveal-delay-1">
+                    <div class="cake-img">&#127835;</div>
+                    <div class="cake-info">
+                        <h3>Napoleontårta</h3>
+                        <p class="cake-desc">Smördegsbotten, äppelmos, vaniljkräm, grädde, hallonsylt och glasyr.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 165 kr</span>
+                            <span class="cake-tag">Laktosfri finns</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-card reveal reveal-delay-2">
+                    <div class="cake-img">&#127820;</div>
+                    <div class="cake-info">
+                        <h3>Rysk Banantårta</h3>
+                        <p class="cake-desc">Tårtbotten, grädde, chokladkräm, banan och banangelé. Familjefavorit.</p>
+                        <div class="cake-meta">
+                            <span class="cake-price">Från 114 kr</span>
+                            <span class="cake-tag">Glutenfri finns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding -->
+    <section class="wedding" id="wedding">
+        <div class="section-inner">
+            <div class="wedding-grid">
+                <div>
+                    <div class="section-label reveal">Bröllop</div>
+                    <h2 class="section-title reveal">Er drömtårta väntar</h2>
+                    <p class="section-desc reveal">Låt oss hjälpa er att designa den perfekta bröllopstårtan. Från intima fester till stora mottagningar &mdash; vi skapar tårtor som matchar er kärlekshistoria.</p>
+
+                    <div class="wedding-features">
+                        <div class="wedding-feature reveal">
+                            <div class="wf-icon">&#127874;</div>
+                            <div>
+                                <h4>Personlig design</h4>
+                                <p>Anpassa med foton, text och dekorationer som passar ert tema.</p>
+                            </div>
+                        </div>
+                        <div class="wedding-feature reveal reveal-delay-1">
+                            <div class="wf-icon">&#128101;</div>
+                            <div>
+                                <h4>Alla storlekar</h4>
+                                <p>Från 8 portioner till tårtor för upp till 70 gäster.</p>
+                            </div>
+                        </div>
+                        <div class="wedding-feature reveal reveal-delay-2">
+                            <div class="wf-icon">&#127807;</div>
+                            <div>
+                                <h4>Allergianpassat</h4>
+                                <p>Glutenfria och laktosfria alternativ tillgängliga. Specialkost för 40+ portioner.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wedding-card reveal">
+                    <span class="icon">&#128141;</span>
+                    <h3>Boka konsultation</h3>
+                    <p>Kontakta oss för att diskutera er drömtårta. Vi hjälper er genom hela processen.</p>
+                    <a href="tel:047012311" class="btn-primary">Ring 0470-12311</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference -->
+    <section class="conference" id="conference">
+        <div class="section-inner">
+            <div class="section-label reveal">Konferens & Kalas</div>
+            <h2 class="section-title reveal">Er perfekta mötesplats</h2>
+            <p class="section-desc reveal">Vår rymliga övervåning på Storgatan rymmer upp till 80 sittande gäster, uppdelat i tre separata rum.</p>
+
+            <div class="conf-features">
+                <div class="conf-feature reveal">
+                    <span class="cf-icon">&#128188;</span>
+                    <h3>Konferenser</h3>
+                    <p>Professionell miljö med flexibla rumsalternativ. Perfekt för arbetsmöten och presentationer.</p>
+                </div>
+                <div class="conf-feature reveal reveal-delay-1">
+                    <span class="cf-icon">&#127881;</span>
+                    <h3>Fester & Kalas</h3>
+                    <p>Fira födelsedag, student eller annat kalas i en unik konditorimiljö med hemlagad mat och bakverk.</p>
+                </div>
+                <div class="conf-feature reveal reveal-delay-2">
+                    <span class="cf-icon">&#127860;</span>
+                    <h3>Catering</h3>
+                    <p>Smörgåstårtor, plankor och maträtter &mdash; vi ordnar mat för alla tillfällen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-inner">
+            <div class="section-label reveal">Kontakt</div>
+            <h2 class="section-title reveal">Välkommen till oss</h2>
+            <p class="section-desc reveal">Vi ser fram emot ert besök! Hör av er för beställningar eller frågor.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <h3>Hitta hit</h3>
+                    <div class="contact-item">
+                        <div class="ci-icon">&#128205;</div>
+                        <div>
+                            <h4>Adress</h4>
+                            <p>Storgatan 25, 352 30 Växjö</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">&#128222;</div>
+                        <div>
+                            <h4>Telefon</h4>
+                            <a href="tel:047012311">0470-12311</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">&#9993;</div>
+                        <div>
+                            <h4>E-post</h4>
+                            <a href="mailto:info@askelyckan.se">info@askelyckan.se</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="ci-icon">&#128247;</div>
+                        <div>
+                            <h4>Sociala medier</h4>
+                            <p>
+                                <a href="https://www.instagram.com/askelyckanskonditori/" target="_blank" rel="noopener">Instagram</a> &bull;
+                                <a href="https://www.facebook.com/AskelyckansKonditori" target="_blank" rel="noopener">Facebook</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card reveal reveal-delay-1">
+                    <h3>Öppettider</h3>
+                    <div class="hours-table">
+                        <div class="hours-row">
+                            <span class="day">Måndag - Fredag</span>
+                            <span class="time">08:00 - 19:00</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Lördag</span>
+                            <span class="time">09:00 - 16:30</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Söndag</span>
+                            <span class="time">10:00 - 16:00</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-light); line-height: 1.6;">
+                        <strong style="color: var(--dark-brown);">Avvikande tider vid helgdagar.</strong><br>
+                        Ring oss för aktuella öppettider vid röda dagar och storhelger.
+                    </p>
+                    <a href="tel:047012311" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex;">
+                        Ring oss &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-overlay">
+                <span class="pin">&#128205;</span>
+                <h3>Storgatan 25, Växjö</h3>
+                <p>I hjärtat av Växjö centrum</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Storgatan+25+352+30+V%C3%A4xj%C3%B6" target="_blank" rel="noopener">Öppna i Google Maps &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        Askelyckans
+                        <span>Konditori sedan 1956</span>
+                    </a>
+                    <p style="margin-top: 1rem;">Bakat med kärlek i Växjö sedan 1956. Tradition, hantverk och gemenskap i varje tugga.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/askelyckanskonditori/" target="_blank" rel="noopener" aria-label="Instagram">&#128247;</a>
+                        <a href="https://www.facebook.com/AskelyckansKonditori" target="_blank" rel="noopener" aria-label="Facebook">&#128077;</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Meny</h4>
+                    <a href="#story">Om oss</a>
+                    <a href="#menu">Specialiteter</a>
+                    <a href="#cakes">Tårtor</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Tjänster</h4>
+                    <a href="#cakes">Beställningstårtor</a>
+                    <a href="#wedding">Bröllopstårtor</a>
+                    <a href="#conference">Konferens</a>
+                    <a href="#conference">Catering</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <a href="tel:047012311">0470-12311</a>
+                    <a href="mailto:info@askelyckan.se">info@askelyckan.se</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Storgatan+25+352+30+V%C3%A4xj%C3%B6" target="_blank" rel="noopener">Storgatan 25, Växjö</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Askelyckans Konditori. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

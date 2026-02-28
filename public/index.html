@@ -283,6 +283,12 @@
             height: 48px;
             background: linear-gradient(to bottom, rgba(253,251,247,0.5), transparent);
             margin: 0 auto;
+            animation: scrollPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(8px); }
         }
 
         /* ═══════════════════════════════════════
@@ -598,9 +604,7 @@
             margin: 0 auto;
             padding: 6rem 3rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
+            max-width: 640px;
         }
 
         .wedding-text .section-label { color: var(--butter); }
@@ -784,7 +788,7 @@
             transition: border-color 0.3s;
         }
 
-        .contact-value a:hover { border-color: var(--espresso); }
+        .contact-value a:hover { border-color: var(--lingon); color: var(--lingon); }
 
         .hours-table {
             width: 100%;
@@ -1221,7 +1225,6 @@
                 </ul>
                 <a href="tel:047012311" class="wedding-cta">Boka konsultation</a>
             </div>
-            <div></div>
         </div>
     </section>
 
@@ -1231,7 +1234,7 @@
             <div class="conf-text fade-in">
                 <div class="section-label">Konferens &amp; Kalas</div>
                 <h2 class="section-title">Er perfekta mötesplats</h2>
-                <p>Vår rymliga övervåning på Storgatan erbjuder tre separata rum &mdash; perfekt för konferenser, fester, fika-kvällar och fester.</p>
+                <p>Vår rymliga övervåning på Storgatan erbjuder tre separata rum &mdash; perfekt för konferenser, fester, fika-kvällar och högtider.</p>
                 <div class="conf-capacity">Upp till 80 sittande gäster</div>
                 <p>Vi ordnar allt från smörgåstårtor och plankor till kompletta lunchmåltider. Hör av er för en skräddarsydd offert.</p>
                 <a href="tel:047012311" class="conf-cta">Boka lokal</a>
@@ -1299,7 +1302,7 @@
 
     <!-- ═══ MAP ═══ -->
     <section class="map-section">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2155.!2d14.8063!3d56.8790!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4657!2sStorgatan+25!5e0!3m2!1ssv!2sse!4v1"
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2155.9!2d14.8057!3d56.8792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4657239f4a5dccd7%3A0x4019078290e7570!2sStorgatan%2025%2C%20352%2030%20V%C3%A4xj%C3%B6!5e0!3m2!1ssv!2sse!4v1709142000000!5m2!1ssv!2sse"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                 title="Karta till Askelyckans Konditori, Storgatan 25, Växjö"></iframe>
     </section>
@@ -1318,7 +1321,7 @@
                         <a href="https://www.instagram.com/askelyckanskonditori/" target="_blank" rel="noopener" aria-label="Instagram">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                                <circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(253,251,247,0.6)" stroke="none"/>
                             </svg>
                         </a>
                         <a href="https://www.facebook.com/AskelyckansKonditori" target="_blank" rel="noopener" aria-label="Facebook">
